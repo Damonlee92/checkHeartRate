@@ -1,0 +1,16 @@
+{
+  "name": "Check Heart Rate",
+  "short_name": "Heart Rate",
+  "description": "Measure your pulse in the browser and track resting heart rate on this device.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0c0f",
+  "theme_color": "#0b0c0f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
