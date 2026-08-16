@@ -1,10 +1,26 @@
 <?php
 declare(strict_types=1);
-$v = '20260812f';
+$v = '20260816b';
 $year = (int) date('Y');
 $title = 'Check Heart Rate Online — Free BPM Pulse Monitor';
 $desc = 'Measure your heart rate in your browser. Tap with each pulse to get BPM, training zones, and a private reading history on this device. No download required.';
 $canonical = 'https://checkheartrate.io/';
+$adsenseClient = 'ca-pub-6590664002834153';
+
+function render_adsense(string $client, string $format = 'horizontal'): void
+{
+    $client = htmlspecialchars($client, ENT_QUOTES);
+    $format = htmlspecialchars($format, ENT_QUOTES);
+    echo <<<HTML
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="{$client}"
+     data-ad-format="{$format}"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+HTML;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +72,10 @@ $canonical = 'https://checkheartrate.io/';
     gtag('config', 'G-W5Y02R5FFV');
   </script>
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6590664002834153"
+     crossorigin="anonymous"></script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,15 +115,12 @@ $canonical = 'https://checkheartrate.io/';
   </header>
 
   <main>
-    <!--
-      Ad slot: top leaderboard
-      When you add Google AdSense, paste the unit inside .ad-slot__box
-      and remove the is-empty class from this .ad-slot.
-    -->
-    <div class="ad-slot is-empty" data-ad="top">
+    <aside class="ad-slot" data-ad="top" aria-label="Advertisement">
       <span class="ad-slot__label">Advertisement</span>
-      <div class="ad-slot__box"></div>
-    </div>
+      <div class="ad-slot__box">
+        <?php render_adsense($adsenseClient); ?>
+      </div>
+    </aside>
 
     <section class="hero wrap" id="measure">
       <div class="hero__intro">
@@ -235,14 +252,12 @@ $canonical = 'https://checkheartrate.io/';
       </div>
     </section>
 
-    <!--
-      Ad slot: mid-page
-      Keep this away from the tap button. Remove is-empty when a unit is live.
-    -->
-    <div class="ad-slot is-empty" data-ad="mid">
+    <aside class="ad-slot" data-ad="mid" aria-label="Advertisement">
       <span class="ad-slot__label">Advertisement</span>
-      <div class="ad-slot__box"></div>
-    </div>
+      <div class="ad-slot__box">
+        <?php render_adsense($adsenseClient); ?>
+      </div>
+    </aside>
 
     <section class="section wrap prose" id="guide">
       <div class="eyebrow">The basics</div>
@@ -340,6 +355,13 @@ $canonical = 'https://checkheartrate.io/';
         <p>If you feel unwell, have chest pain, are dizzy, or have been told to monitor a heart condition, use the method your clinician gave you. This page is a convenience tool, not a medical device.</p>
       </details>
     </section>
+
+    <aside class="ad-slot" data-ad="bottom" aria-label="Advertisement">
+      <span class="ad-slot__label">Advertisement</span>
+      <div class="ad-slot__box">
+        <?php render_adsense($adsenseClient); ?>
+      </div>
+    </aside>
 
     <section class="section section--tight wrap" id="privacy">
       <div class="note">

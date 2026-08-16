@@ -296,13 +296,18 @@ html[data-theme="light"] .theme-toggle .theme-icon-moon { display: block; }
 html[data-theme="dark"] .theme-toggle .theme-icon-sun { display: block; }
 html[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
 
-/* Ads — reserved, empty until AdSense is added */
+/* Ads */
 .ad-slot {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  width: min(var(--max), calc(100% - 32px));
   margin: 22px auto;
+}
+
+.ad-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none;
 }
 
 .ad-slot__label {
@@ -313,21 +318,17 @@ html[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
 }
 
 .ad-slot__box {
+  display: block;
   width: 100%;
   max-width: 728px;
   min-height: 90px;
-  border: 1px dashed var(--line-strong);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.015);
+  overflow: hidden;
 }
 
-.ad-slot--inline .ad-slot__box {
-  max-width: 336px;
-  min-height: 280px;
-}
-
-.ad-slot.is-empty {
-  display: none;
+.ad-slot__box ins.adsbygoogle {
+  display: block;
+  width: 100%;
+  min-height: 90px;
 }
 
 /* Hero / measure */
